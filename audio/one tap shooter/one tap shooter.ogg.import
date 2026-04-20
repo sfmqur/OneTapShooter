@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2byfltbtuwl8"
+path="res://.godot/imported/one tap shooter.ogg-15f0d02b2ff1746924de9f240f7688aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/one tap shooter/one tap shooter.ogg"
+dest_files=["res://.godot/imported/one tap shooter.ogg-15f0d02b2ff1746924de9f240f7688aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

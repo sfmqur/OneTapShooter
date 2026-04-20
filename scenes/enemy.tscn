@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bbwwuswhljbaw"]
+
+[ext_resource type="Script" uid="uid://y2hx04cbjobu" path="res://scripts/Enemy.cs" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://dnwk0cjdb1taf" path="res://scenes/projectile.tscn" id="2_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://lic3wa5cadu3" path="res://sprites/enemy.png" id="2_md0e3"]
+[ext_resource type="AudioStream" uid="uid://cvkdtr1hm0d1u" path="res://audio/squish sfx/squish sfx.ogg" id="4_5uy6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_md0e3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
+size = Vector2(16, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
+size = Vector2(16, 10)
+
+[node name="Enemy" type="Node2D" unique_id=1169203255]
+script = ExtResource("1_7p1mj")
+MaxHealth = 3.0
+MinShootTime = 0.5
+ProjectileScene = ExtResource("2_4ra3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=413199912]
+sprite_frames = SubResource("SpriteFrames_nenq2")
+frame_progress = 0.50971544
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=520131019]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2043426962]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_md484")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1928980113]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1392859864]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_4ra3w")
+debug_color = Color(0.8643714, 0.33101642, 0.36487898, 0.41960785)
+
+[node name="AudioSquishPlayer" type="AudioStreamPlayer2D" parent="." unique_id=484760996]
+stream = ExtResource("4_5uy6h")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnCollide"]

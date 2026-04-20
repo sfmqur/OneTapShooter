@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://beacn34ots7jn"]
+
+[ext_resource type="PackedScene" uid="uid://yicc3naoa78w" path="res://scenes/player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://8lrr2eh2h3kf" path="res://scenes/ui.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://j3ohsvecxbvb" path="res://scenes/spawner.tscn" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://2byfltbtuwl8" path="res://audio/one tap shooter/one tap shooter.ogg" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://ddaqceeu6xhl6" path="res://sprites/background.png" id="5_lquwl"]
+
+[node name="Main" type="Node" unique_id=980550504]
+
+[node name="Player" parent="." unique_id=393457948 instance=ExtResource("1_0xm2m")]
+position = Vector2(160, 312)
+
+[node name="UI" parent="." unique_id=935027659 instance=ExtResource("2_0xm2m")]
+
+[node name="Spawner" parent="." unique_id=2001290394 instance=ExtResource("3_h2yge")]
+position = Vector2(0, -8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=760997452]
+stream = ExtResource("4_lquwl")
+volume_db = -7.5
+autoplay = true
+mix_target = 1
+parameters/looping = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1836572549]
+z_index = -1
+texture = ExtResource("5_lquwl")
+centered = false

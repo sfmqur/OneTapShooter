@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://j3ohsvecxbvb"]
+
+[ext_resource type="Script" uid="uid://dbecliueei3qq" path="res://scripts/Spawner.cs" id="1_2vbf6"]
+[ext_resource type="PackedScene" uid="uid://bbwwuswhljbaw" path="res://scenes/enemy.tscn" id="2_ik2nu"]
+
+[node name="Spawner" type="Node2D" unique_id=2001290394]
+script = ExtResource("1_2vbf6")
+EnemyScene = ExtResource("2_ik2nu")
+DifficultyFactor = 0.01

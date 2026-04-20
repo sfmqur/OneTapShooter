@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bnxg7qhk1bpb1"
+path="res://.godot/imported/hit sfx.ogg-541a560ab4df0e4d62a476ab50cfcadc.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/hit sfx/hit sfx.ogg"
+dest_files=["res://.godot/imported/hit sfx.ogg-541a560ab4df0e4d62a476ab50cfcadc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

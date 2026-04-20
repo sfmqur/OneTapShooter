@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://yicc3naoa78w"]
+
+[ext_resource type="Texture2D" uid="uid://daarnnr5utinn" path="res://sprites/tank.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dm3kb8gk6vgff" path="res://scripts/Player.cs" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dnwk0cjdb1taf" path="res://scenes/projectile.tscn" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dymfr838dctsm" path="res://audio/shot fx/shot fx.ogg" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://bnxg7qhk1bpb1" path="res://audio/hit sfx/hit sfx.ogg" id="5_qlg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" unique_id=393457948]
+script = ExtResource("1_g2els")
+Health = 30.0
+Speed = 175.0
+ProjectileScene = ExtResource("2_qhqgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1857938522]
+sprite_frames = SubResource("SpriteFrames_hqtel")
+frame_progress = 0.07852862
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1061369637]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1953537446]
+polygon = PackedVector2Array(0, -9, -8, -1, -8, 8, 8, 8, 8, -1)
+
+[node name="AudioShotPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2143582515]
+stream = ExtResource("4_dqkch")
+
+[node name="AudioHitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=536223637]
+stream = ExtResource("5_qlg0r")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnCollide"]
