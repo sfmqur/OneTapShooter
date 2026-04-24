@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="One Tap Shooter"
-run/main_scene="uid://beacn34ots7jn"
+run/main_scene="uid://bbv7c51f7i5gl"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="uid://buxmtfhw31ypb"
 

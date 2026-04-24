@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bbv7c51f7i5gl"]
+
+[ext_resource type="Script" uid="uid://bgj3hhiyshve7" path="res://scripts/Menu.cs" id="1_4hy44"]
+[ext_resource type="Texture2D" uid="uid://brfbkjyks5gbq" path="res://sprites/title.png" id="1_mae5d"]
+[ext_resource type="FontFile" uid="uid://peepgccnkwbj" path="res://fonts/templeos.ttf" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://b6tidtqge6rnr" path="res://sprites/menu_button.png" id="3_ytr4m"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_4hy44"]
+button_index = 6
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_ytr4m"]
+events = [SubResource("InputEventJoypadButton_4hy44")]
+
+[node name="Menu" type="Node2D" unique_id=1413631495]
+script = ExtResource("1_4hy44")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1365308987]
+position = Vector2(160, 160)
+texture = ExtResource("1_mae5d")
+
+[node name="StartButton" type="Sprite2D" parent="." unique_id=1066056006]
+position = Vector2(160, 250)
+texture = ExtResource("3_ytr4m")
+
+[node name="Button" type="Button" parent="StartButton" unique_id=344049555]
+offset_left = -64.0
+offset_top = -19.0
+offset_right = 64.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("2_4hy44")
+shortcut = SubResource("Shortcut_ytr4m")
+text = "start"
+flat = true
+
+[connection signal="pressed" from="StartButton/Button" to="." method="OnStartPressed"]
